@@ -1,5 +1,5 @@
 {
-  "name": "webpack-template",
+  "name": "space-flight-news",
   "version": "1.0.0",
   "description": "This project is for making a webpack template for initializing my next coming projects. I will add webpack, Jest, gh-pages, bubble and linter configuration to this repository",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bushmusi/webpack-template.git"
+    "url": "git+https://github.com/AckonSamuel/space-flight-news.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bushmusi/webpack-template/issues"
+    "url": "https://github.com/AckonSamuel/space-flight-news/issues"
   },
-  "homepage": "https://github.com/bushmusi/webpack-template#readme",
+  "homepage": "https://github.com/AckonSamuel/space-flight-news#readme",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
