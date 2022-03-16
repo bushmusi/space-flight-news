@@ -1,0 +1,62 @@
+@import "varialble";
+
+$main-padding: 30px 30px;
+
+main {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  border: 3px solid firebrick;
+  padding: $main-padding;
+  gap: 50px 10px;
+  width: 100%;
+
+  .item-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    background-color: #d8e0e7;
+    padding: 10px;
+    height: 100%;
+
+    img {
+      display: block;
+      max-width: 100%;
+      min-height: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    strong {
+      font-family: $font-lato;
+      font-size: medium;
+      font-weight: 900;
+    }
+
+    p {
+      font-family: $font-cocogoose;
+      color: #111416;
+      font-size: small;
+      height: 25%;
+      font-style: italic;
+    }
+
+    .interact-icon {
+        display: flex;
+        justify-content: space-between;
+        span {
+            cursor: pointer;
+        }
+    }
+
+    .reserve-btn {
+        display: block;
+        text-align: center;
+        border: none;
+        height: 55px;
+        background-color: $primary-color;
+        cursor: pointer;
+        color: azure;
+    }
+  }
+}
