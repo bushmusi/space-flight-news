@@ -1,8 +1,16 @@
 import './style.css';
 import './style.scss';
+import './assets/scss/main-tag.scss';
 
-console.log('hello webpack');
+import News from './assets/js/logic/news-fetch.js';
+import display from './assets/js/dom-service/display-news.js';
 
-const fancyFunc = () => [1, 2];
+const news_service = new News();
+const data = news_service.getArticles();
 
-const [a, b] = fancyFunc();
+const getAllNews = async () => {
+    let data = await news_service.getArticles();
+    display(data)
+}
+
+getAllNews();
