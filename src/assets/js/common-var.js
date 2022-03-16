@@ -1,2 +1,2 @@
-const article_url = "https://api.spaceflightnewsapi.net/v3/articles";
-export default  article_url;
+const ARTICLE_URL = 'https://api.spaceflightnewsapi.net/v3/articles';
+export default ARTICLE_URL;
