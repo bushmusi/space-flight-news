@@ -1,12 +1,12 @@
 @import "varialble";
 
 $main-padding: 30px 30px;
+$breakpoint-tablet: 768px;
 
 main {
   display: inline-grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  border: 3px solid firebrick;
+  grid-template-rows: repeat(3, 1fr);
   padding: $main-padding;
   gap: 50px 10px;
   width: 100%;
@@ -42,21 +42,30 @@ main {
     }
 
     .interact-icon {
-        display: flex;
-        justify-content: space-between;
-        span {
-            cursor: pointer;
-        }
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        cursor: pointer;
+      }
     }
 
     .reserve-btn {
-        display: block;
-        text-align: center;
-        border: none;
-        height: 55px;
-        background-color: $primary-color;
-        cursor: pointer;
-        color: azure;
+      display: block;
+      text-align: center;
+      border: none;
+      height: 55px;
+      background-color: $primary-color;
+      cursor: pointer;
+      color: azure;
     }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    padding: $main-padding;
   }
 }
