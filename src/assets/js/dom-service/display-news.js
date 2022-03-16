@@ -18,7 +18,7 @@ const getItemChild = () => {
 
   const reserveBtn = document.createElement('button');
   reserveBtn.className = 'reserve-btn';
-  reserveBtn.textContent = 'Reservations';
+  reserveBtn.textContent = 'Reservation';
 
   return [img, titleElement, descElement, interactionCont, reserveBtn];
 };
