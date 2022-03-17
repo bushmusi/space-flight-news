@@ -22,3 +22,13 @@ body {
   overflow-x: hidden;
   background-color: aliceblue;
 }
+
+.modal {
+  display: none;
+  position: relative;
+  width: 60%;
+  height: 100vh;
+  margin: auto;
+  z-index: 9999;
+}
+
