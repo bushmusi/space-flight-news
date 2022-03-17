@@ -1,7 +1,6 @@
 const body = document.querySelector('body');
 const popUp = document.createElement('section');
 popUp.classList.add('modal');
-popUp.style.background = 'lightblue';
 const close = document.createElement('i');
 close.classList.add('fa', 'fa-times', 'fa-2x');
 close.style.border = '1px solid black';
