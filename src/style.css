@@ -21,14 +21,39 @@ body {
   height: 100%;
   overflow-x: hidden;
   background-color: aliceblue;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+main {
+  z-index: 5;
 }
 
 .modal {
   display: none;
-  position: relative;
-  width: 60%;
-  height: 100vh;
+  width: 90%;
+  height: 90vh;
   margin: auto;
-  z-index: 9999;
+  margin-top: 40px;
+  background-color: rgb(218, 237, 190);
+  border: 3px solid black;
+  overflow: auto;
+}
+
+.modal-header {
+  width: 70%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+}
+
+.comment-span {
+  padding: 2px;
+}
+
+.dn {
+  display: none;
 }
 

@@ -26,13 +26,23 @@ const getComment = async (g) => {
 
 document.addEventListener('click', async (e) => {
   e.preventDefault();
-  const targetd = e.target.classList.contains('comment-span');
+  let targetd = e.target.classList.contains('comment-span');
   if (targetd) {
-    const commen = document.getElementsByClassName('comment-span');
-    getIndex = commen[0].getAttribute('id');
+    getIndex = e.target.getAttribute('id');
+
     const ag = Number(getIndex);
     const gg = await getComment(ag);
-    console.log(gg);
     modal(gg);
+    document.querySelector('main').classList.toggle('dn');
+  }
+  targetd = !e.target.classList.contains('comment-span');
+});
+
+document.addEventListener('click', async (e) => {
+  e.preventDefault();
+  const targetd = e.target.classList.contains('fa-times');
+  if (targetd) {
+    document.querySelector('section').style.display = 'none';
+    document.querySelector('main').classList.remove('dn');
   }
 });

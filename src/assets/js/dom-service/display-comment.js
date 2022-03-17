@@ -1,10 +1,14 @@
 const body = document.querySelector('body');
 const popUp = document.createElement('section');
 popUp.classList.add('modal');
+const close = document.createElement('i');
+close.classList.add('fa', 'fa-times', 'fa-2x');
+close.style.border = '1px solid black';
+close.style.cursor = 'pointer';
+close.style.color = 'black';
+close.style.background = 'white';
+popUp.appendChild(close);
 const getModal = document.querySelector('.modal');
-const modalHeader = document.createElement('div');
-modalHeader.classList.add('modal-header');
-popUp.appendChild(modalHeader);
 
 const popComment = () => {
   const imgElemet = document.createElement('img');
@@ -27,8 +31,13 @@ const popComment = () => {
 
 const displayModal = async (data) => {
   popUp.style.display = 'block';
+  while (popUp.children.length > 1) {
+    popUp.removeChild(popUp.children[1]);
+  }
+  const modalHeader = document.createElement('div');
+  modalHeader.classList.add('modal-header');
+  popUp.appendChild(modalHeader);
   body.appendChild(popUp);
-  console.log(data);
   // eslint-disable-next-line max-len
   const [imgElemet, titleElement, descElement, newsSiteElement, summaryElement, publishedElement, updatedElement] = popComment();
   imgElemet.src = data.imageUrl;
