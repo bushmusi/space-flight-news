@@ -22,7 +22,7 @@ body {
   overflow-x: hidden;
   background-color: aliceblue;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 main {
@@ -61,4 +61,45 @@ main {
 
 .containComment {
   overflow: auto;
+}
+
+footer {
+  height: 60px;
+  padding: 3% 5%;
+  border-top: 1.5px solid #aaa;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-top: 14px;
+  position: relative;
+}
+
+.logo {
+  border: 1px solid blue;
+  border-radius: 50%;
+  padding: 1em;
+  margin: auto;
+}
+
+.nav-tab {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  list-style: none;
+  gap: 1em;
+  margin: auto;
+}
+
+.nav-tab li {
+  margin-right: 1em;
+  margin-left: 2em;
+}
+
+hr {
+  width: 100%;
+  margin-top: 14px;
 }
