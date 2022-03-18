@@ -37,9 +37,9 @@ document.addEventListener('click', async (e) => {
     document.querySelector('main').classList.toggle('dn');
   }
   targetd = !e.target.classList.contains('comment-span');
-  const letit = await initializeComments();
-  const gup = Number(letit);
-  console.log(gup);
+  // const letit = await initializeComments();
+  // const gup = Number(letit);
+  // console.log(gup);
 });
 
 document.addEventListener('click', async (e) => {

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
+const BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const appId = '4hAiwRDAyz2SaKqGrhTt';
 
 const getCommentsData = async (newsId) => {

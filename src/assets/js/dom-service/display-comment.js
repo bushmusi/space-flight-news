@@ -77,11 +77,14 @@ const displayModal = async (data) => {
   });
 
   const containComment = document.createElement('div');
-  containComment.style.height = '100px';
+  const commentTitle = document.createElement('h2');
+  const commentDetails = document.createElement('div');
   containComment.style.width = '80%';
   containComment.style.margin = 'auto';
   containComment.style.color = 'white';
-  containComment.innerHTML = '<h2> No Comment </h2>';
+  commentTitle.textContent = 'No Comments';
+  containComment.appendChild(commentTitle);
+  containComment.appendChild(commentDetails);
 
   const itemElements = [
     imgElemet,
@@ -97,37 +100,31 @@ const displayModal = async (data) => {
   itemElements.forEach((val) => {
     modalHeader.appendChild(val);
   });
-  submit.addEventListener('click', () => {
-    addComment(data, inputName.value, inputComment.value);
+  submit.addEventListener('click', async () => {
+    addComment(data.id, inputName.value, inputComment.value);
+    commentTitle.textContent = 'Comments';
+    commentDetails.innerHTML = '';
+    const commentInfo = await getCommentsData(data.id);
+    commentInfo.forEach((item) => {
+      commentInfo.innerHTML += `
+      <p> ${item.username} : ${item.creation_date} </p>
+      <p> ${item.comment} </p>
+      <hr>
+      <br>`;
+    });
   });
 
-  const commentInfo = await getCommentsData(data);
-  if (commentInfo.children.length > 1) {
-    while (commentInfo.length > 1) {
-      containComment.removeChild(containComment.firstChild);
-    }
-
-    containComment.innerHTML = `
-    <h2> Comments </h2>
-    <p> ${commentInfo.username} : ${commentInfo.creation_date} </p>
-    <p> ${commentInfo.comment} </p>
-    <hr>
-    <br>`;
+  const commentInfo = await getCommentsData(data.id);
+  if (commentInfo.length > 0) {
+    commentTitle.textContent = 'Comments';
+    commentDetails.innerHTML = '';
   }
-
-  window.onload(() => {
-    if (commentInfo.children.length > 1) {
-      while (commentInfo.length > 1) {
-        containComment.removeChild(containComment.firstChild);
-      }
-
-      containComment.innerHTML = `
-    <h2> Comments </h2>
-    <p> ${commentInfo.username} : ${commentInfo.creation_date} </p>
-    <p> ${commentInfo.comment} </p>
+  commentInfo.forEach((item) => {
+    commentDetails.innerHTML += `
+    <p> ${item.username} : ${item.creation_date} </p>
+    <p> ${item.comment} </p>
     <hr>
     <br>`;
-    }
   });
 };
 
