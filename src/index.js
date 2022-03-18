@@ -5,6 +5,7 @@ import './assets/scss/main-tag.scss';
 import News from './assets/js/logic/news-fetch.js';
 import display from './assets/js/dom-service/display-news.js';
 import modal from './assets/js/dom-service/display-comment.js';
+import { initializeComments } from './assets/js/logic/initializeComment.js';
 
 const newsService = new News();
 const data = newsService.getArticles();
@@ -36,6 +37,9 @@ document.addEventListener('click', async (e) => {
     document.querySelector('main').classList.toggle('dn');
   }
   targetd = !e.target.classList.contains('comment-span');
+  const letit = await initializeComments();
+  const gup = Number(letit);
+  console.log(gup);
 });
 
 document.addEventListener('click', async (e) => {
@@ -46,5 +50,3 @@ document.addEventListener('click', async (e) => {
     document.querySelector('main').classList.remove('dn');
   }
 });
-
-

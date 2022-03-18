@@ -1,5 +1,5 @@
 const BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
-const appId = 'spacenew01';
+const appId = '4hAiwRDAyz2SaKqGrhTt';
 
 const getCommentsData = async (newsId) => {
   let result = await fetch(`${BASE_URL}${appId}/comments?item_id=${newsId}`);

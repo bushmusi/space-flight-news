@@ -1,13 +1,12 @@
-const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
-const initializeGame = async (gameName) => {
+const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
+const initializeComments = async () => {
   const response = await fetch(`${url}/`, {
     method: 'POST',
-    body: JSON.stringify({ name: gameName }),
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
     },
   });
-  return response.json();
+  return response.json;
 };
 
-export { url, initializeGame };
+export { url, initializeComments };
