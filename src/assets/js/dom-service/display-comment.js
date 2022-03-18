@@ -1,3 +1,5 @@
+import { getCommentsData, addComment } from '../logic/addComment.js';
+
 const body = document.querySelector('body');
 const popUp = document.createElement('section');
 popUp.classList.add('modal');
@@ -9,6 +11,21 @@ close.style.color = 'black';
 close.style.background = 'white';
 popUp.appendChild(close);
 const getModal = document.querySelector('.modal');
+
+const showComment = () => {
+  const inputName = document.createElement('input');
+  const inputComment = document.createElement('input');
+  const submit = document.createElement('button');
+  inputName.type = 'text';
+  inputName.id = 'username';
+  inputName.placeholder = 'name';
+  inputComment.type = 'text';
+  inputComment.id = 'username';
+  inputComment.placeholder = 'Comment';
+  submit.type = 'button';
+  submit.textContent = 'Comment';
+  return [inputName, inputComment, submit];
+};
 
 const popComment = () => {
   const imgElemet = document.createElement('img');
@@ -50,10 +67,67 @@ const displayModal = async (data) => {
   titleElement.textContent = data.title;
   descElement.textContent = data.summary;
 
-  // eslint-disable-next-line max-len
-  const itemElements = [imgElemet, titleElement, descElement, newsSiteElement, summaryElement, publishedElement, updatedElement];
+  const [inputName, inputComment, submit] = showComment();
+
+  const form = document.createElement('form');
+  const formEl = [inputName, inputComment, submit];
+
+  formEl.forEach((item) => {
+    form.appendChild(item);
+  });
+
+  const containComment = document.createElement('div');
+  containComment.style.height = '100px';
+  containComment.style.width = '80%';
+  containComment.style.margin = 'auto';
+  containComment.style.color = 'white';
+  containComment.innerHTML = '<h2> No Comment </h2>';
+
+  const itemElements = [
+    imgElemet,
+    titleElement,
+    descElement,
+    newsSiteElement,
+    summaryElement,
+    publishedElement,
+    updatedElement,
+    containComment,
+    form,
+  ];
   itemElements.forEach((val) => {
     modalHeader.appendChild(val);
+  });
+  submit.addEventListener('click', () => {
+    addComment(data, inputName.value, inputComment.value);
+  });
+
+  const commentInfo = await getCommentsData(data);
+  if (commentInfo.children.length > 1) {
+    while (commentInfo.length > 1) {
+      containComment.removeChild(containComment.firstChild);
+    }
+
+    containComment.innerHTML = `
+    <h2> Comments </h2>
+    <p> ${commentInfo.username} : ${commentInfo.creation_date} </p>
+    <p> ${commentInfo.comment} </p>
+    <hr>
+    <br>`;
+  }
+
+  window.onload(() => {
+    if (commentInfo.children.length > 1) {
+      while (commentInfo.length > 1) {
+        containComment.removeChild(containComment.firstChild);
+      }
+
+      containComment.innerHTML = `
+    <h2> Comments </h2>
+    <p> ${commentInfo.username} : ${commentInfo.creation_date} </p>
+    <p> ${commentInfo.comment} </p>
+    <hr>
+    <br>`;
+    }
   });
 };
 
