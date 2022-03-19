@@ -4,7 +4,7 @@
   "description": "This project is for making a webpack template for initializing my next coming projects. I will add webpack, Jest, gh-pages, bubble and linter configuration to this repository",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --env=jsdom",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
     "deploy": "gh-pages -d dist"
@@ -34,6 +34,7 @@
     "hint": "^6.1.10",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",
+    "node-fetch": "^3.2.3",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
