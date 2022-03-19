@@ -8,7 +8,7 @@ This project is about consuming `REST` API, We have used ES6 modules and synatax
 
 
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot.PNG)
 
 ## Built With
 
