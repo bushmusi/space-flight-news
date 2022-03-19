@@ -5,9 +5,9 @@ This is a book shelve website dedicated to store collection of books, add new bo
 
 In this project, you will be using javascript arrays and object to store the list of books and saving the book colection in the local storage. Do not use any other framework, just pure javascript. After you are done with the project, run tests and deploy.
 
-### [Live Demo Link](https://bushmusi.github.io/todo-list/)
+### [Live Demo Link](https://ackonsamuel.github.io/space-flight-news/)
 
-
+### [Video Description](https://drive.google.com/file/d/1LeuCI0VjSKb6Y--YXMLOsuF_Z5PJnFKU/view?usp=sharing)
 
 ![screenshot](./app_screenshot.png)
 
