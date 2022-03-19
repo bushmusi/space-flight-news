@@ -1,5 +1,4 @@
-const BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
-const appId = '4hAiwRDAyz2SaKqGrhTt';
+import { BASE_URL, appId } from '../common-var';
 
 const getCommentsData = async (newsId) => {
   let result = await fetch(`${BASE_URL}${appId}/comments?item_id=${newsId}`);

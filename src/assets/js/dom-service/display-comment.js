@@ -1,30 +1,29 @@
-import { getCommentsData, addComment } from '../logic/addComment.js';
+import { getCommentsData, addComment } from '../logic/add-comment.js';
 
 const body = document.querySelector('body');
 const popUp = document.createElement('section');
 popUp.classList.add('modal');
 const close = document.createElement('i');
 close.classList.add('fa', 'fa-times', 'fa-2x');
-close.style.border = '1px solid black';
 close.style.cursor = 'pointer';
-close.style.color = 'black';
-close.style.background = 'white';
 popUp.appendChild(close);
-const getModal = document.querySelector('.modal');
 
 const showComment = () => {
+  const commentFormTitle = document.createElement('h2');
+  commentFormTitle.textContent = 'Add Comment';
   const inputName = document.createElement('input');
-  const inputComment = document.createElement('input');
+  const inputComment = document.createElement('textarea');
   const submit = document.createElement('button');
   inputName.type = 'text';
   inputName.id = 'username';
-  inputName.placeholder = 'name';
-  inputComment.type = 'text';
-  inputComment.id = 'username';
-  inputComment.placeholder = 'Comment';
+  inputName.placeholder = 'Name here...';
+  inputComment.id = 'comment-input';
+  inputComment.cols = 14;
+  inputComment.rows = 14;
+  inputComment.placeholder = 'Comment here...';
   submit.type = 'button';
   submit.textContent = 'Comment';
-  return [inputName, inputComment, submit];
+  return [commentFormTitle, inputName, inputComment, submit];
 };
 
 const popComment = () => {
@@ -48,6 +47,8 @@ const popComment = () => {
 
 const displayModal = async (data) => {
   popUp.style.display = 'block';
+  popUp.style.width = '70vw';
+  popUp.style.overflowY = 'scroll';
   while (popUp.children.length > 1) {
     popUp.removeChild(popUp.children[1]);
   }
@@ -62,15 +63,15 @@ const displayModal = async (data) => {
   descElement.textContent = 'Visit website';
   newsSiteElement.href = data.newsSite;
   summaryElement.textContent = data.summary;
-  publishedElement.textContent = data.publishedAt;
-  updatedElement.textContent = data.updatedAt;
+  publishedElement.innerHTML += `<i>Published at:</i> ${data.publishedAt}`;
+  updatedElement.innerHTML += `<i>Updated at:</i> ${data.updatedAt}`;
   titleElement.textContent = data.title;
-  descElement.textContent = data.summary;
 
-  const [inputName, inputComment, submit] = showComment();
+  const [formTitle, inputName, inputComment, submit] = showComment();
 
   const form = document.createElement('form');
-  const formEl = [inputName, inputComment, submit];
+  form.id = 'comment-form';
+  const formEl = [formTitle, inputName, inputComment, submit];
 
   formEl.forEach((item) => {
     form.appendChild(item);
@@ -81,7 +82,7 @@ const displayModal = async (data) => {
   const commentDetails = document.createElement('div');
   containComment.style.width = '80%';
   containComment.style.margin = 'auto';
-  containComment.style.color = 'white';
+  containComment.id = 'commment-box';
   commentTitle.textContent = 'No Comments';
   containComment.appendChild(commentTitle);
   containComment.appendChild(commentDetails);
@@ -100,32 +101,29 @@ const displayModal = async (data) => {
   itemElements.forEach((val) => {
     modalHeader.appendChild(val);
   });
+
   submit.addEventListener('click', async () => {
     addComment(data.id, inputName.value, inputComment.value);
+    const commentCont = document.getElementById('commment-box');
+    const commentForm = document.getElementById('comment-form');
     commentTitle.textContent = 'Comments';
-    commentDetails.innerHTML = '';
-    const commentInfo = await getCommentsData(data.id);
-    commentInfo.forEach((item) => {
-      commentInfo.innerHTML += `
-      <p> ${item.username} : ${item.creation_date} </p>
-      <p> ${item.comment} </p>
+    commentCont.innerHTML += `
+      <p> Now <strong>${inputName.value}</strong>:<i>${inputComment.value}</i></p>
       <hr>
       <br>`;
-    });
+    commentForm.reset();
   });
 
   const commentInfo = await getCommentsData(data.id);
   if (commentInfo.length > 0) {
     commentTitle.textContent = 'Comments';
-    commentDetails.innerHTML = '';
+    commentInfo.forEach((item) => {
+      commentDetails.innerHTML += `
+      <p> ${item.creation_date} <strong>${item.username}</strong>:<i>${item.comment}</i></p>
+      <hr>
+      <br>`;
+    });
   }
-  commentInfo.forEach((item) => {
-    commentDetails.innerHTML += `
-    <p> ${item.username} : ${item.creation_date} </p>
-    <p> ${item.comment} </p>
-    <hr>
-    <br>`;
-  });
 };
 
 export default displayModal;
