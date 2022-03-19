@@ -106,7 +106,11 @@ const displayModal = async (data) => {
     addComment(data.id, inputName.value, inputComment.value);
     const commentCont = document.getElementById('commment-box');
     const commentForm = document.getElementById('comment-form');
-    commentTitle.textContent = 'Comments';
+    const commentCounter = document.getElementById('comment-counter');
+    let count = commentCounter.textContent;
+    count = +count;
+    count += 1;
+    commentTitle.innerHTML = `Comments (<i id='comment-counter'>${count}</i>)`;
     commentCont.innerHTML += `
       <p> Now <strong>${inputName.value}</strong>:<i>${inputComment.value}</i></p>
       <hr>
@@ -116,7 +120,7 @@ const displayModal = async (data) => {
 
   const commentInfo = await getCommentsData(data.id);
   if (commentInfo.length > 0) {
-    commentTitle.textContent = 'Comments';
+    commentTitle.innerHTML = `Comments (<i id='comment-counter'>${commentInfo.length}</i>)`;
     commentInfo.forEach((item) => {
       commentDetails.innerHTML += `
       <p> ${item.creation_date} <strong>${item.username}</strong>:<i>${item.comment}</i></p>
