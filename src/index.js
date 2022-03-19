@@ -10,8 +10,15 @@ import LikeCounter from './assets/js/logic/like-counter';
 const NewsService = new News();
 const LikeService = new LikeCounter();
 
+const setNumNews = (num) => {
+  const newsCounter =document.getElementById('news-counter');
+  newsCounter.innerText = num;
+}
+
 const getAllNews = async () => {
   const newsData = await NewsService.getArticles();
+  const numNews = await newsData.length;
+  setNumNews(numNews);
   const likeData = await LikeService.get();
   display(newsData, likeData);
 
