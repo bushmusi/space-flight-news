@@ -4,8 +4,7 @@
 This project is about consuming `REST` API, We have used ES6 modules and synatax, Linters, Github  and GitFlow, Test using JEST package. We also use Promise object for consuming REST API.
 
 ### [Live Demo Link](https://ackonsamuel.github.io/space-flight-news/)
-### [Video presentation](https://drive.google.com/file/d/1LeuCI0VjSKb6Y--YXMLOsuF_Z5PJnFKU/view?usp=sharing)
-
+### [Video presentation](https://drive.google.com/file/d/1gs5j-7onBObNtN2H7lzD0URjXKFfELMQ/view?usp=sharing)
 
 
 ![screenshot](./app_screenshot.PNG)
