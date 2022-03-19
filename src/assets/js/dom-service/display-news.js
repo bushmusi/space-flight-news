@@ -44,7 +44,7 @@ const displayItem = async (newsData, likesData) => {
     commentSpan.id = item.id;
     likeSpan.id = `like-icon-${item.id}`;
     [commentSpan, likeSpan].forEach((element) => {
-      interactionCont.appendChild(element)
+      interactionCont.appendChild(element);
     });
 
     const itemElements = [img, titleElement, descElement, interactionCont, reserveBtn];
@@ -54,13 +54,12 @@ const displayItem = async (newsData, likesData) => {
     MAIN_CONT.appendChild(itemBox);
   });
 
-  if (likesData.length > 0 ) {
+  if (likesData.length > 0) {
     likesData.forEach((val) => {
       const item = document.getElementById(`like-icon-${val.item_id}`);
-      item ? item.innerHTML = ` ${val.likes}`  : true;
-    })
+      const temp = item ? item.innerHTML = ` ${val.likes}` : '';
+    });
   }
-
 };
 
 export default displayItem;

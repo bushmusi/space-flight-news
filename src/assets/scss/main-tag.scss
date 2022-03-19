@@ -3,6 +3,52 @@
 $main-padding: 30px 30px;
 $breakpoint-tablet: 768px;
 
+section {
+  i {
+    margin: 10px;
+  }
+
+  div {
+    img {
+      height: 215px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        margin: 20px 0;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      border: 2px solid rgb(173, 167, 167);
+      padding: 20px;
+
+      input[type=text],
+      textarea {
+        border: none;
+        border-bottom: 2px solid #3532323b;
+        padding: 20px;
+        outline: none;
+      }
+
+      button[type=button] {
+        border: none;
+        padding: 13px;
+        color: black;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 main {
   display: inline-grid;
   grid-template-columns: repeat(3, 1fr);
@@ -58,54 +104,6 @@ main {
       background-color: $primary-color;
       cursor: pointer;
       color: azure;
-    }
-  }
-
-}
-
-section {
-  
-  i {
-    margin: 10px;
-  }
-
-  div {
-
-    img {
-      height: 215px;
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-
-      h2 {
-        margin: 20px 0px;
-      }
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      row-gap: 10px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      border: 2px solid rgb(173, 167, 167);
-      padding: 20px;
-      
-      input[type=text], textarea {
-        border: none;
-        border-bottom: 2px solid #3532323b;
-        padding:20px;
-        outline: none;
-      }
-
-      button[type=button] {
-        border: none;
-        padding: 13px;
-        color: black;
-        cursor: pointer;
-      }
     }
   }
 }

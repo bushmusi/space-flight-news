@@ -48,7 +48,7 @@ const popComment = () => {
 const displayModal = async (data) => {
   popUp.style.display = 'block';
   popUp.style.width = '70vw';
-  popUp.style.overflowY='scroll';
+  popUp.style.overflowY = 'scroll';
   while (popUp.children.length > 1) {
     popUp.removeChild(popUp.children[1]);
   }
@@ -67,11 +67,11 @@ const displayModal = async (data) => {
   updatedElement.innerHTML += `<i>Updated at:</i> ${data.updatedAt}`;
   titleElement.textContent = data.title;
 
-  const [formTitle,inputName, inputComment, submit] = showComment();
+  const [formTitle, inputName, inputComment, submit] = showComment();
 
   const form = document.createElement('form');
   form.id = 'comment-form';
-  const formEl = [formTitle,inputName, inputComment, submit];
+  const formEl = [formTitle, inputName, inputComment, submit];
 
   formEl.forEach((item) => {
     form.appendChild(item);
@@ -82,7 +82,7 @@ const displayModal = async (data) => {
   const commentDetails = document.createElement('div');
   containComment.style.width = '80%';
   containComment.style.margin = 'auto';
-  containComment.id="commment-box"
+  containComment.id = 'commment-box';
   commentTitle.textContent = 'No Comments';
   containComment.appendChild(commentTitle);
   containComment.appendChild(commentDetails);
@@ -124,7 +124,6 @@ const displayModal = async (data) => {
       <br>`;
     });
   }
-
 };
 
 export default displayModal;
