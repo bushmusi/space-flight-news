@@ -1,8 +1,8 @@
-import fetchurl from '../common-var.js';
+import { ARTICLE_URL } from '../common-var.js';
 
 export default class {
   constructor() {
-    this.url = fetchurl;
+    this.url = ARTICLE_URL;
   }
 
     getArticles = async () => {

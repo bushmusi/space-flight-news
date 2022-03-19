@@ -25,18 +25,16 @@ const getItemChild = () => {
 
 const getIcons = () => {
   const commentSpan = document.createElement('span');
-  commentSpan.innerHTML = 'comment <i class="fa fa-comment"></i>';
-  commentSpan.classList.add('comment-span');
+  commentSpan.className = 'fa fa-comment comment-span';
   const likeSpan = document.createElement('span');
-  likeSpan.innerHTML = 'like <i class="fa fa-heart"></i>';
-
+  likeSpan.className = 'fa fa-heart like-icon';
   return [commentSpan, likeSpan];
 };
 
-const displayItem = async (data) => {
+const displayItem = async (newsData, likesData) => {
   MAIN_CONT.innerHTML = '';
 
-  data.forEach((item) => {
+  newsData.forEach((item) => {
     const [img, titleElement, descElement, interactionCont, reserveBtn] = getItemChild();
     const itemBox = getItemBox();
     img.src = item.imageUrl;
@@ -44,7 +42,10 @@ const displayItem = async (data) => {
     descElement.textContent = item.summary;
     const [commentSpan, likeSpan] = getIcons();
     commentSpan.id = item.id;
-    [commentSpan, likeSpan].forEach((element) => interactionCont.appendChild(element));
+    likeSpan.id = `like-icon-${item.id}`;
+    [commentSpan, likeSpan].forEach((element) => {
+      interactionCont.appendChild(element);
+    });
 
     const itemElements = [img, titleElement, descElement, interactionCont, reserveBtn];
     itemElements.forEach((val) => {
@@ -52,6 +53,13 @@ const displayItem = async (data) => {
     });
     MAIN_CONT.appendChild(itemBox);
   });
+
+  if (likesData.length > 0) {
+    likesData.forEach((val) => {
+      const item = document.getElementById(`like-icon-${val.item_id}`);
+      const temp = item ? item.innerHTML = ` ${val.likes}` : '';
+    });
+  }
 };
 
 export default displayItem;
