@@ -3,6 +3,19 @@
 $main-padding: 30px 30px;
 $breakpoint-tablet: 768px;
 
+header {
+  ul {
+    li {
+      span {
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: #4982bd;
+        color: white;
+      }
+    }
+  }
+}
+
 section {
   i {
     margin: 10px;

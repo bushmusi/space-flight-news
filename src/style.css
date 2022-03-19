@@ -70,10 +70,9 @@ footer {
 
 header {
   display: flex;
-  width: 80%;
+  width: 100%;
   margin: auto;
-  margin-top: 14px;
-  position: relative;
+  padding: 40px 10px;
 }
 
 .logo {
