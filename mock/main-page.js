@@ -1,5 +1,5 @@
 const domContainer = () => {
-    document.body.innerHTML = `
+  document.body.innerHTML = `
     <body>
         <header>
             <div class = "logo">Scifi logo</div>
@@ -13,5 +13,5 @@ const domContainer = () => {
             </ul>
         </header>
     </body>`;
-  };
-  export default domContainer;
+};
+export default domContainer;

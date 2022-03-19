@@ -6,5 +6,5 @@ describe('Item Counter Test', () => {
     domContainer();
     const num = setNumNews(9);
     expect(num).toBe(9);
-  })
-})
+  });
+});
