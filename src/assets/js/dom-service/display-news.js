@@ -34,12 +34,18 @@ const getIcons = () => {
 const displayItem = async (newsData, likesData) => {
   MAIN_CONT.innerHTML = '';
 
-  newsData.forEach((item) => {
+  newsData.forEach((item,index) => {
     const [img, titleElement, descElement, interactionCont, reserveBtn] = getItemChild();
     const itemBox = getItemBox();
     img.src = item.imageUrl;
+    const imgBox = document.createElement('div');
+    imgBox.className = 'item-image'
+    imgBox.appendChild(img);
     titleElement.textContent = item.title;
+    const descBox = document.createElement('div');
+    descBox.className = 'desc-box'
     descElement.textContent = item.summary;
+    descBox.appendChild(descElement);
     const [commentSpan, likeSpan] = getIcons();
     commentSpan.id = item.id;
     likeSpan.id = `like-icon-${item.id}`;
@@ -47,7 +53,7 @@ const displayItem = async (newsData, likesData) => {
       interactionCont.appendChild(element);
     });
 
-    const itemElements = [img, titleElement, descElement, interactionCont, reserveBtn];
+    const itemElements = [imgBox, titleElement, descBox, interactionCont, reserveBtn];
     itemElements.forEach((val) => {
       itemBox.appendChild(val);
     });
