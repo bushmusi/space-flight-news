@@ -1,15 +1,13 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Todo List
-This is a book shelve website dedicated to store collection of books, add new books and delete books. 
-
-In this project, you will be using javascript arrays and object to store the list of books and saving the book colection in the local storage. Do not use any other framework, just pure javascript. After you are done with the project, run tests and deploy.
+# Space Flight News
+This project is about consuming `REST` API, We have used ES6 modules and synatax, Linters, Github  and GitFlow, Test using JEST package. We also use Promise object for consuming REST API.
 
 ### [Live Demo Link](https://ackonsamuel.github.io/space-flight-news/)
+### [Video presentation](https://drive.google.com/file/d/1gs5j-7onBObNtN2H7lzD0URjXKFfELMQ/view?usp=sharing)
 
-### [Video Description](https://drive.google.com/file/d/1LeuCI0VjSKb6Y--YXMLOsuF_Z5PJnFKU/view?usp=sharing)
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot.PNG)
 
 ## Built With
 
@@ -28,7 +26,7 @@ To get a local copy up and running follow these simple example steps.
 - Create a github repository.
 
 ## Setup
-- `git clone https://github.com/bushmusi/todo-list.git`
+- `git clone https://github.com/AckonSamuel/space-flight-news.git`
 - `cd todo-list/`
 - Install packages:  `npm install`
 - Start Live Server: `npm start`
@@ -66,6 +64,11 @@ For tracking linters errors locally, you need to follow these steps:
 - GitHub: 
     - [Bushra](www.github.com/bushmusi)
 
+👤 **Ackon**
+
+- GitHub: 
+    - [Ackon](www.github.com/AckonSamuel)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -78,6 +81,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+- [Space Flight News API](https://spaceflightnewsapi.net/)
 - Microverse 
 - Coding Partners
 - Code Reviewers
