@@ -21,8 +21,6 @@ body {
   height: 100%;
   overflow-x: hidden;
   background-color: aliceblue;
-  display: flex;
-  flex-direction: column;
 }
 
 main {
@@ -66,20 +64,6 @@ footer {
   padding: 3% 5%;
   border-top: 1.5px solid #aaa;
   text-align: center;
-}
-
-header {
-  display: flex;
-  width: 100%;
-  margin: auto;
-  padding: 40px 10px;
-}
-
-.logo {
-  border: 1px solid blue;
-  border-radius: 50%;
-  padding: 1em;
-  margin: auto;
 }
 
 .nav-tab {
