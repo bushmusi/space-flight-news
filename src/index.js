@@ -1,11 +1,12 @@
 import './style.css';
+import './spinner.css';
 import './style.scss';
 import './assets/scss/main-tag.scss';
 
 import News from './assets/js/logic/news-fetch.js';
 import display from './assets/js/dom-service/display-news.js';
 import modal from './assets/js/dom-service/display-comment.js';
-import LikeCounter from './assets/js/logic/like-counter';
+import LikeCounter from './assets/js/logic/like-counter.js';
 
 const NewsService = new News();
 const LikeService = new LikeCounter();
