@@ -5,13 +5,15 @@ $breakpoint-tablet: 768px;
 
 header {
   margin: 0;
+  grid-area: 1 / 1 / 2 / 3;
+
   nav {
     display: flex;
     width: 100%;
 
     div.nav-left {
       display: flex;
-      background-color: #EB1D24;
+      background-color: #eb1d24;
       padding: 10px;
       justify-content: flex-end;
       align-items: center;
@@ -33,7 +35,7 @@ header {
         padding: 10px;
       }
     }
-    
+
     ul.nav-right {
       display: flex;
       height: auto;
@@ -46,19 +48,23 @@ header {
       li {
         color: white;
         font-size: larger;
-
       }
     }
   }
 }
 
 body {
-
   div.logo {
     display: flex;
     width: 100%;
     height: auto;
     padding: 20px;
+  }
+
+  div.loader-box {
+    display: flex;
+    justify-content: center;
+    display: none;
   }
 }
 
@@ -148,18 +154,19 @@ main {
       font-family: $font-lato;
       font-size: large;
       font-weight: 900;
-      color: #EB1D24;
+      color: #eb1d24;
     }
 
     div.desc-box {
       height: 25%;
+
       p {
         color: #202020;
         font-family: Georgia, serif;
         font-weight: normal;
         font-size: 1.1rem;
         line-height: 1.6;
-        letter-spacing: .018em;
+        letter-spacing: 0.018em;
         margin-bottom: 1.4rem;
         text-rendering: optimizeLegibility;
       }
