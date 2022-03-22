@@ -1,11 +1,12 @@
 import './style.css';
+import './spinner.css';
 import './style.scss';
 import './assets/scss/main-tag.scss';
 
 import News from './assets/js/logic/news-fetch.js';
 import display from './assets/js/dom-service/display-news.js';
 import modal from './assets/js/dom-service/display-comment.js';
-import LikeCounter from './assets/js/logic/like-counter';
+import LikeCounter from './assets/js/logic/like-counter.js';
 
 const NewsService = new News();
 const LikeService = new LikeCounter();
@@ -16,11 +17,14 @@ const setNumNews = (num) => {
 };
 
 const getAllNews = async () => {
+  const spinner = document.getElementById('loader-item');
+  spinner.style.display = 'flex';
   const newsData = await NewsService.getArticles();
   const numNews = await newsData.length;
   setNumNews(numNews);
   const likeData = await LikeService.get();
   display(newsData, likeData);
+  spinner.style.display = 'none';
 
   const likeElements = document.querySelectorAll('.like-icon');
   likeElements.forEach((val) => {

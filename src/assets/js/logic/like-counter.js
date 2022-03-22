@@ -1,4 +1,4 @@
-import { BASE_URL, appId } from '../common-var';
+import { BASE_URL, appId } from '../common-var.js';
 
 export default class {
   constructor() {
@@ -21,6 +21,6 @@ export default class {
         headers: {
           'Content-Type': 'application/json',
         },
-      }).then((response) => console.log(response.status === 201));
+      }).then((response) => response.json());
     }
 }

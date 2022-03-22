@@ -1,4 +1,4 @@
-import { BASE_URL, appId } from '../common-var';
+import { BASE_URL, appId } from '../common-var.js';
 
 const getCommentsData = async (newsId) => {
   let result = await fetch(`${BASE_URL}${appId}/comments?item_id=${newsId}`);

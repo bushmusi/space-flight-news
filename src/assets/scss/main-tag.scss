@@ -4,15 +4,66 @@ $main-padding: 30px 30px;
 $breakpoint-tablet: 768px;
 
 header {
-  ul {
-    li {
-      span {
-        padding: 5px 10px;
-        border-radius: 50%;
-        background-color: #4982bd;
+  margin: 0;
+  grid-area: 1 / 1 / 2 / 3;
+
+  nav {
+    display: flex;
+    width: 100%;
+
+    div.nav-left {
+      display: flex;
+      background-color: #eb1d24;
+      padding: 10px;
+      justify-content: flex-end;
+      align-items: center;
+      flex: 1;
+      column-gap: 5px;
+
+      a {
         color: white;
+        font-size: larger;
+        font-weight: 600;
+      }
+
+      span {
+        border: 5px solid #918585;
+        border-radius: 20%;
+        color: white;
+        font-size: larger;
+        font-weight: 700;
+        padding: 10px;
       }
     }
+
+    ul.nav-right {
+      display: flex;
+      height: auto;
+      flex: 2;
+      padding: 20px;
+      justify-content: flex-end;
+      column-gap: 20px;
+      background-color: #202020;
+
+      li {
+        color: white;
+        font-size: larger;
+      }
+    }
+  }
+}
+
+body {
+  div.logo {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  div.loader-box {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -64,40 +115,59 @@ section {
 
 main {
   display: inline-grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  padding: $main-padding;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 50px 10px;
   width: 100%;
+  padding: 20px 300px;
 
   .item-box {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
-    background-color: #d8e0e7;
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 20px;
     padding: 10px;
     height: 100%;
+    transition: 2s;
 
-    img {
-      display: block;
-      max-width: 100%;
-      min-height: 50%;
-      margin-left: auto;
-      margin-right: auto;
+    div.item-image {
+      display: flex;
+      min-width: 460px;
+      min-height: 239px;
+      max-width: 45px;
+      max-height: 45px;
+      justify-content: center;
+
+      img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     strong {
       font-family: $font-lato;
-      font-size: medium;
+      font-size: large;
       font-weight: 900;
+      color: #eb1d24;
     }
 
-    p {
-      font-family: $font-cocogoose;
-      color: #111416;
-      font-size: small;
+    div.desc-box {
       height: 25%;
-      font-style: italic;
+
+      p {
+        color: #202020;
+        font-family: Georgia, serif;
+        font-weight: normal;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        letter-spacing: 0.018em;
+        margin-bottom: 1.4rem;
+        text-rendering: optimizeLegibility;
+      }
     }
 
     .interact-icon {
@@ -106,6 +176,7 @@ main {
 
       span {
         cursor: pointer;
+        color: #202020;
       }
     }
 
@@ -114,10 +185,14 @@ main {
       text-align: center;
       border: none;
       height: 55px;
-      background-color: $primary-color;
+      background-color: #202020;
       cursor: pointer;
       color: azure;
     }
+  }
+
+  .item-box:hover {
+    transform: scale(1.1);
   }
 }
 
