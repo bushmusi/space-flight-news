@@ -103,12 +103,13 @@ const displayModal = async (data) => {
   });
 
   submit.addEventListener('click', async () => {
-    addComment(data.id, inputName.value, inputComment.value);
+    // addComment(data.id, inputName.value, inputComment.value);
     const commentCont = document.getElementById('commment-box');
     const commentForm = document.getElementById('comment-form');
     const commentCounter = document.getElementById('comment-counter');
-    let count = commentCounter.textContent;
+    let count = commentCounter === null ? 0 : commentCounter.textContent;
     count = +count;
+    count = typeof commentCounter === 'number' ? count : 0;
     count += 1;
     commentTitle.innerHTML = `Comments (<i id='comment-counter'>${count}</i>)`;
     commentCont.innerHTML += `
