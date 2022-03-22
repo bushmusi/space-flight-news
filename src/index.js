@@ -17,11 +17,14 @@ const setNumNews = (num) => {
 };
 
 const getAllNews = async () => {
+  const spinner = document.getElementById('loader-item');
+  spinner.style.display = 'flex';
   const newsData = await NewsService.getArticles();
   const numNews = await newsData.length;
   setNumNews(numNews);
   const likeData = await LikeService.get();
   display(newsData, likeData);
+  spinner.style.display = 'none';
 
   const likeElements = document.querySelectorAll('.like-icon');
   likeElements.forEach((val) => {
